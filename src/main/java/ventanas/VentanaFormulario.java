@@ -6,27 +6,18 @@
 package ventanas;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.border.TitledBorder;
-import logica.Animal;
-import logica.GestorArchivo;
+import Modelo.Animal;
+import Modelo.GestorArchivo;
 import paneles.PanelBoton;
-import paneles.PanelBoton;
-import paneles.PanelGeneral;
 import paneles.PanelGeneral;
 
-/**
- *
- * @author DeadPoint
- */
 public class VentanaFormulario extends JFrame implements ActionListener {
 
     private JFrame ventPrin;
@@ -73,7 +64,7 @@ public class VentanaFormulario extends JFrame implements ActionListener {
 
     }
 
-    public void inicializarComponente() {
+    private void inicializarComponente() {
 
         this.setTitle("THE PHARMER");
         this.setSize(640, 300);
