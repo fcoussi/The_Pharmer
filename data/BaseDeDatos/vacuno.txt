@@ -1,0 +1,3 @@
+maravilla;12;femenino;12/24/1996;vacuno;2342
+Regalona;23;femeninno;34/12/1998;vacuno;45673
+marcelo;1;masculino;12/03/2017;vacuno;34456
