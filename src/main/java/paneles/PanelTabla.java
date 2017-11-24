@@ -101,9 +101,5 @@ public class PanelTabla extends JPanel {
         }
 
     }
-    
-    public void modificarFilas(){
-        
-    }
 
 }
