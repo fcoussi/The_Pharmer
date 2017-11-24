@@ -5,8 +5,7 @@
  */
 package ventanas;
 
-import ventanas.VentanaGrafico;
-import ventanas.VentanaFormulario;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
@@ -24,7 +23,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JToolBar;
 import javax.swing.table.DefaultTableModel;
-import logica.GestorArchivo;
+import Modelo.GestorArchivo;
 import paneles.PanelBoton;
 import paneles.PanelBoton;
 import paneles.PanelGeneral;
@@ -54,7 +53,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
         inicializarComponente();
     }
 
-    public void inicializarComponente() {
+    private void inicializarComponente() {
 
         setTitle("The Pharmer");
         setSize(640, 500);
