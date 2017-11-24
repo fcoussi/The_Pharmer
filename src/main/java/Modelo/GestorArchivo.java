@@ -5,7 +5,7 @@
  */
 package Modelo;
 
-import Modelo.*;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import java.io.BufferedReader;
@@ -55,7 +55,6 @@ public class GestorArchivo {
         BufferedReader lector = null;
         int contador=0;
        t.completarFilasPorDefecto(contador);
-         t.eliminarTodasFilas();
         try {
             lector = new BufferedReader(new FileReader(archivo));
             String linea = lector.readLine();
@@ -68,7 +67,7 @@ public class GestorArchivo {
                         
                     
                 } 
-              
+                
                 t.completarInformacion(contador,datos);
                 contador++;
                 linea = lector.readLine();

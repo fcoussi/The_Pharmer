@@ -66,7 +66,7 @@ public class VentanaFormulario extends JFrame implements ActionListener {
 
     private void inicializarComponente() {
 
-        this.setTitle("THE PHARMER");
+        this.setTitle("The Pharmer");
         this.setSize(640, 300);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
