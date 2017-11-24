@@ -37,7 +37,7 @@ public class VentanaModificar extends JFrame  {
     this.panelCentro.crearBordes("Formulario para modificar");
     
         for (int i = 0; i <6; i++) {
-            this.panelCentro.crearEtiquetas(i);
+            this.panelCentro. crearEtiquetas(i);
             this.panelCentro.crearLabelVacios();
             this.panelCentro.crearTextField(i);
         }
