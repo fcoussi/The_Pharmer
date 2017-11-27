@@ -3,10 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ventanas;
+package vista.ventanas;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -16,18 +18,23 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-import paneles.PanelBoton;
-import paneles.PanelGeneral;
-import paneles.PanelTabla;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTable;
+import vista.paneles.PanelBoton;
+import vista.paneles.PanelGeneral;
+import vista.paneles.PanelTabla;
 
 /**
  *
  * @author castillo
  */
-public class VentanaModificar extends JFrame  {
+public class VentanaModificar extends JFrame implements ActionListener {
     
+    private  PanelTabla tablaModificar;
     private PanelGeneral panelCentro;
     private PanelBoton  panelSur;
+    private int filaModificar;
     public VentanaModificar(JFrame ventana, ImageIcon icono){
         
         this.setIconImage(icono.getImage());
@@ -54,16 +61,18 @@ public class VentanaModificar extends JFrame  {
     String[] nombreBtn ={"Modificar"};
     this.panelSur=new PanelBoton(nombreBtn,5,260);
     this.add(this.panelSur,BorderLayout.SOUTH);
-             
-        setSize(615,300);        
+    
+    this.panelSur.botones.get(0).addActionListener(this);
+        setSize(600,250);        
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         setTitle("The Pharmer");
         setVisible(true);
     }
     
-    public void modificarDatos(String[] datoCelda) throws IOException{    
-        
+    public void modificarDatos(String[] datoCelda, int fila,PanelTabla tabla) throws IOException{    
+        this.tablaModificar=tabla;
+        this.filaModificar=fila;
         String linea=datoCelda[0]+";"+datoCelda[1]+";"+datoCelda[2]+";"+datoCelda[3]+";"+datoCelda[4]+";"+datoCelda[5];
         String linea2;
         for (int i = 0; i < datoCelda.length; i++) {
@@ -109,6 +118,21 @@ public class VentanaModificar extends JFrame  {
             }
         }catch(FileNotFoundException ex){
             ex.printStackTrace();
+        }
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        
+        if (this.panelSur.botones.get(0)==e.getSource()) {
+            
+            for (int i = 0; i < 6; i++) {
+                
+              this.tablaModificar.getTabla().setValueAt(this.panelCentro.txtDatos.get(i).getText(),this.filaModificar,i );   
+            }
+             
+            JOptionPane.showMessageDialog(null, "Datos modificados");
+
         }
     }
 }

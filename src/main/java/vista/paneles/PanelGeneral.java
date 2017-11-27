@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package paneles;
+package vista.paneles;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -89,6 +89,14 @@ public class PanelGeneral extends JPanel {
     public void setTxtDatos(int n, String dato){
         this.txtDatos.get(n).setText(dato);
     }
+
+    public ArrayList<JTextField> getTxtDatos() {
+        return txtDatos;
+    }
+    
+     
+    
+    
 
     public void modificarTamaño() {
 

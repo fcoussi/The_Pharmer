@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package paneles;
+package vista.paneles;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -83,11 +83,9 @@ public class PanelGrafico extends JPanel{
             data.setValue(archivos.get(i),cantidad.get(i));
             
         }
-//        data.setValue("C",19);
-//        data.setValue("Java",20);
-//        data.setValue("Python",10);
+
         
-        JFreeChart chart = ChartFactory.createPieChart("Grafico Nº animales por raza",data,true,true,false);
+        JFreeChart chart = ChartFactory.createPieChart("Grafico por tipo de animal",data,true,true,false);
         ChartPanel charPanel= new ChartPanel(chart);
         this.add(charPanel);
     }

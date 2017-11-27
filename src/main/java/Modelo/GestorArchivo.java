@@ -6,7 +6,7 @@
 package Modelo;
 
 
-import com.google.gson.Gson;
+
 import com.google.gson.GsonBuilder;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -14,7 +14,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import paneles.PanelTabla;
+import vista.paneles.PanelTabla;
 
 /**
  *
@@ -54,12 +54,13 @@ public class GestorArchivo {
         String archivo = "data\\BaseDeDatos\\" + palabra + ".txt";
         BufferedReader lector = null;
         int contador=0;
-       t.completarFilasPorDefecto(contador);
+    
+       t.eliminarTodasFilas();
         try {
             lector = new BufferedReader(new FileReader(archivo));
             String linea = lector.readLine();
             while (linea != null) {
-               // System.out.println(linea);
+              
                 
                 String []datos=linea.split(";");
                 for (int i = 0; i < datos.length; i++) {
@@ -74,7 +75,7 @@ public class GestorArchivo {
 
 
             }
-            //t.completarFilasPorDefecto(contador);
+          
             
             
 

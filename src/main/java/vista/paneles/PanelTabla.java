@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package paneles;
+package vista.paneles;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -79,14 +79,6 @@ public class PanelTabla extends JPanel {
         filas[4] = dato[4];
         filas[5] = dato[5];
         this.modelo.addRow(filas);
-//        for (int j = 0; j < dato.length; j++) {
-//            this.filaDatos[fila][j] = dato[j];
-//            this.modelo.setValueAt(dato[j],fila,j);
-//           
-//        }
-//        DefaultTableModel dtm = new DefaultTableModel(filaDatos, columna);
-//        this.tabla = new JTable(dtm);
-//        tabla.setPreferredScrollableViewportSize(new Dimension(500, 300));
     }
 
     public void eliminarTodasFilas() {

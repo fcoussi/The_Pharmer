@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ventanas;
+package vista.ventanas;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -15,8 +15,8 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import Modelo.Animal;
 import Modelo.GestorArchivo;
-import paneles.PanelBoton;
-import paneles.PanelGeneral;
+import vista.paneles.PanelBoton;
+import vista.paneles.PanelGeneral;
 
 public class VentanaFormulario extends JFrame implements ActionListener {
 
@@ -51,7 +51,7 @@ public class VentanaFormulario extends JFrame implements ActionListener {
         }
         this.add(this.panelVentana, BorderLayout.CENTER);
 
-        String[] nombreBtn = {"Aseptar"};
+        String[] nombreBtn = {"Aceptar"};
         this.panelSur = new PanelBoton(nombreBtn, 5, 260);
         this.add(panelSur, BorderLayout.SOUTH);
     }
@@ -67,7 +67,7 @@ public class VentanaFormulario extends JFrame implements ActionListener {
     private void inicializarComponente() {
 
         this.setTitle("The Pharmer");
-        this.setSize(640, 300);
+        this.setSize(600, 250);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setVisible(true);
@@ -89,7 +89,7 @@ public class VentanaFormulario extends JFrame implements ActionListener {
             Animal animal = new Animal(datos);
             GestorArchivo g1 = new GestorArchivo(animal);
             g1.escribirArchivo(animal.getRaza());
-            // g1.leerArchivo("vacuno");
+            
             JOptionPane.showMessageDialog(null, "Datos guardados");
 
             for (int i = 0; i < this.panelVentana.txtDatos.size(); i++) {

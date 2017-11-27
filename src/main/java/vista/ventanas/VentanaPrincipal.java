@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ventanas;
+package vista.ventanas;
 
 
 import java.awt.BorderLayout;
@@ -24,11 +24,13 @@ import javax.swing.JOptionPane;
 import javax.swing.JToolBar;
 import javax.swing.table.DefaultTableModel;
 import Modelo.GestorArchivo;
-import paneles.PanelBoton;
-import paneles.PanelBoton;
-import paneles.PanelGeneral;
-import paneles.PanelTabla;
-import paneles.PanelTabla;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import vista.paneles.PanelBoton;
+import vista.paneles.PanelBoton;
+import vista.paneles.PanelGeneral;
+import vista.paneles.PanelTabla;
+import vista.paneles.PanelTabla;
 
 /**
  *
@@ -38,12 +40,9 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 
     private ImageIcon logoPrograma;
     private Icon icono;
-    private PanelBoton panelStartNorte;
     private PanelBoton panelSur;
     private PanelTabla panelCenter;
     private PanelGeneral panelNorte;
-
-    // private PanelBoton panelNorteIzquierdo;
     private PanelBoton panelNorteCentro;
     private PanelBoton panelNorteDerecho;
 
@@ -54,11 +53,12 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
     }
 
     private void inicializarComponente() {
-
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
         setTitle("The Pharmer");
         setSize(640, 500);
+        
         setLocationRelativeTo(null);
-
+        setResizable(false);
         crearLogo();
         this.setIconImage(this.logoPrograma.getImage());
 
@@ -66,9 +66,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
         GridLayout distribucion = new GridLayout();
         this.panelNorte = new PanelGeneral(distribucion, null, null);
 
-//        this.panelNorteIzquierdo = new PanelBoton(1, 1);
-//        this.panelNorteIzquierdo.agregarLabel();
-//        
+    
         this.panelNorteCentro = new PanelBoton(1, 0);
         this.panelNorteCentro.agregarLabel();
 
@@ -76,13 +74,13 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
         this.panelNorteDerecho.agregarJTextField(10);
         this.panelNorteDerecho.agregarBoton("Buscar");
 
-//        this.panelNorte.add(this.panelNorteIzquierdo);
+
         this.panelNorteCentro.setSize(60, 20);
         this.panelNorte.add(panelNorteCentro);
         this.panelNorte.add(panelNorteDerecho);
         this.add(this.panelNorte, BorderLayout.NORTH);
 
-        //       this.panelNorteIzquierdo.botones.get(0).addActionListener(this);
+       
         this.panelNorteDerecho.botones.get(0).addActionListener(this);
 
         this.panelCenter = new PanelTabla();
@@ -145,14 +143,13 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
                 datos[3] = (String) this.panelCenter.getTabla().getValueAt(fila, 3);
                 datos[4] = (String) this.panelCenter.getTabla().getValueAt(fila, 4);
                 datos[5] = (String) this.panelCenter.getTabla().getValueAt(fila, 5);
-
-                for (int i = 0; i < datos.length; i++) {
-                    System.out.println("datos :" + datos[i]);
-
-                }
-
+                
                 VentanaModificar vtn = new VentanaModificar(this, logoPrograma);
-                vtn.modificarDatos(datos);
+                try {
+                    vtn.modificarDatos(datos,fila,panelCenter);
+                } catch (IOException ex) {
+                    Logger.getLogger(VentanaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+                }
 
             }
         }
